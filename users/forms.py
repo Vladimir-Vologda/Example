@@ -39,5 +39,6 @@ class CustomUserChangeFormInAdmin(forms.ModelForm):
     class Meta:
         model = CustomUserModel
         fields = (
-            'name', 'date_birth', 'slug', 'is_active', 'is_admin',
+            'name', 'phone', 'first_name', 'last_name', 'avatar',
+            'date_birth', 'slug', 'is_active', 'is_admin',
         )
