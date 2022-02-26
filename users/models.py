@@ -20,7 +20,7 @@ class CustomUserModel(AbstractBaseUser):
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.slug = slugify(self.slug)
+            self.slug = slugify(self.name)
         super(CustomUserModel, self).save(**kwargs)
 
     def __str__(self):
