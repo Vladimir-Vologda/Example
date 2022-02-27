@@ -1,36 +1,45 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <div class="navbar-brand">Example's</div>
+<div class="container cus-nav">
+    <div class="row">
+        <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="navbar-brand">Example's</div>
 
-        <div class="collapse navbar-collapse" id="navbarColor03">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Главная</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <div class="nav-link">Здравствуйте, {{ user.name }}</div>
-                </li>
-                <li class="nav-item">
-                    <div class="nav-link">&#1472;&#1472;</div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Выход</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'registration' %}">Регистрация</a>
-                </li>
-                <li class="nav-item">
-                    <div class="nav-link">&#1472;&#1472;</div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Вход</a>
-                </li>
-                {% endif %}
-            </ul>
+                    <div class="collapse navbar-collapse" id="navbarColor03">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url 'article_list' %}">Главная</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url 'article_create' %}">Создать статью</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                            {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <div class="nav-link">Здравствуйте, {{ user.name }}</div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="nav-link">&#1472;&#1472;</div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout' %}">Выход</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'registration' %}">Регистрация</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="nav-link">&#1472;&#1472;</div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Вход</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
     </div>
-</nav>
+</div>
