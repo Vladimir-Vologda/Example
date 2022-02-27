@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     #   ----------------------------------
     'users.apps.UsersConfig',
+    'article.apps.ArticleConfig',
 ]
 
 MIDDLEWARE = [
