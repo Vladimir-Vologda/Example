@@ -16,9 +16,11 @@
                         </ul>
                         <ul class="navbar-nav ml-auto">
                             {% if user.is_authenticated %}
-                            <li class="nav-item">
-                                <div class="nav-link">Здравствуйте, {{ user.name }}</div>
-                            </li>
+                            <a href="{% url 'user_detail' user.slug %}">
+                                <li class="nav-item">
+                                    <div class="nav-link">Здравствуйте, {{ user.name }}</div>
+                                </li>
+                            </a>
                             <li class="nav-item">
                                 <div class="nav-link">&#1472;&#1472;</div>
                             </li>

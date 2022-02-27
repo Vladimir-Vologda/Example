@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DetailView
 
 from users.forms import CustomUserCreateForm, CustomUserChangeForm
 from users.models import CustomUserModel
@@ -29,6 +29,17 @@ class CustomLoginView(LoginView):
     def get_context_data(self, **kwargs):
         context = super(CustomLoginView, self).get_context_data(**kwargs)
         context['title'] = _('Authentication of account')
+        return context
+
+
+class CustomDetailView(DetailView):
+    model = CustomUserModel
+    template_name = 'users/custom_detail_view.html'
+    context_object_name = 'user'
+
+    def get_context_data(self, **kwargs):
+        context = super(CustomDetailView, self).get_context_data(**kwargs)
+        context['title'] = context['user']
         return context
 
 
