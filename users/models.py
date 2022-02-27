@@ -49,7 +49,7 @@ class CustomUserModel(AbstractBaseUser):
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
 
-    def get_absolute_url(self):
-        return reverse('user_detail', kwargs={
-            'slug': self.slug
-        })
+    # def get_absolute_url(self):
+    #     return reverse('user_detail', kwargs={
+    #         'slug': self.slug
+    #     })

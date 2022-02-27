@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -32,7 +33,7 @@ class CustomLoginView(LoginView):
         return context
 
 
-class CustomDetailView(DetailView):
+class CustomDetailView(LoginRequiredMixin, DetailView):
     model = CustomUserModel
     template_name = 'users/custom_detail_view.html'
     context_object_name = 'user'
@@ -41,6 +42,9 @@ class CustomDetailView(DetailView):
         context = super(CustomDetailView, self).get_context_data(**kwargs)
         context['title'] = context['user']
         return context
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
 
 class CustomChangeView(UpdateView):
