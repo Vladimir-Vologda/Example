@@ -42,3 +42,12 @@ class CustomUserChangeFormInAdmin(forms.ModelForm):
             'name', 'phone', 'first_name', 'last_name', 'avatar',
             'date_birth', 'slug', 'is_active', 'is_admin',
         )
+
+
+class CustomUserChangeForm(forms.ModelForm):
+
+    class Meta:
+        model = CustomUserModel
+        fields = (
+            'name', 'phone', 'first_name', 'last_name', 'avatar', 'date_birth'
+        )
