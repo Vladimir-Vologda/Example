@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView
 
 from article.forms import CustomCreateArticleForm
 from article.models import ArticleModel
@@ -33,6 +33,19 @@ class ArticleCreateView(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super(ArticleCreateView, self).form_valid(form)
+
+
+class ArticleChangeView(UpdateView):
+    form_class = CustomCreateArticleForm
+    model = ArticleModel
+    template_name = 'article/article_change_view.html'
+    context_object_name = 'change_form'
+    success_url = reverse_lazy('article_list')
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleChangeView, self).get_context_data(**kwargs)
+        context['title'] = context['change_form']
+        return context
 
 
 class ArticleDetailView(DetailView):

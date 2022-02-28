@@ -52,7 +52,7 @@ class CustomChangeView(UpdateView):
     model = CustomUserModel
     template_name = 'users/custom_change_view.html'
     context_object_name = 'form'
-    success_url = reverse_lazy('')
+    success_url = reverse_lazy('user_detail')
 
     def get_context_data(self, **kwargs):
         context = super(CustomChangeView, self).get_context_data(**kwargs)

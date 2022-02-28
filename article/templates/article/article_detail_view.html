@@ -11,6 +11,11 @@
             <h5>{{ form.description }}</h5>
             <p>{{ form.text }}</p>
             <img src="{{ MEDIA_URL }}{{ form.image.url }}" height="200" width="100%">
+            {% if form.author == request.user %}
+            <a href="{% url 'article_change' form.slug %}">
+                <button type="submit" class="btn btn-success cus-but">Обновить</button>
+            </a>
+            {% endif %}
         </div>
     </div>
 </div>
