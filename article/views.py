@@ -23,7 +23,7 @@ class ArticleCreateView(CreateView):
     model = ArticleModel
     template_name = 'article/article_create_view.html'
     context_object_name = 'form'
-    success_url = reverse_lazy('article_list')
+    # success_url = reverse_lazy('article_list')
 
     def get_context_data(self, **kwargs):
         context = super(ArticleCreateView, self).get_context_data(**kwargs)
